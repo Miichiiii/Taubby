@@ -1,0 +1,1293 @@
+<!--  ✨ Coded by
+███╗   ███╗██╗██╗ ██████╗██╗  ██╗██╗██╗██╗██╗██╗
+████╗ ████║██║██║██╔════╝██║  ██║██║██║██║██║██║
+██╔████╔██║██║██║██║     ███████║██║██║██║██║██║
+██║╚██╔╝██║██║██║██║     ██╔══██║██║██║██║██║╚═╝
+██║ ╚═╝ ██║██║██║╚██████╗██║  ██║██║██║██║██║██╗
+╚═╝     ╚═╝╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝╚═╝╚═╝╚═╝     
+& AI -->
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAUBBY - Taubeneier Dokumentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="script" href="/script/script.js"/>
+</head>
+<body class="relative">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white p-4 fixed w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-dove text-2xl neon-text"></i>
+                <h1 class="text-2xl font-futuristic font-bold neon-text">TAUBBY</h1>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#dashboard" class="hover:text-neon-500 transition duration-300 font-futuristic">Dashboard</a>
+                <a href="#input" class="hover:text-neon-500 transition duration-300 font-futuristic">Eingabe</a>
+                <a href="#stats" class="hover:text-neon-500 transition duration-300 font-futuristic">Statistik</a>
+                <a href="#locations" class="hover:text-neon-500 transition duration-300 font-futuristic">Standorte</a>
+                <a href="#team" class="hover:text-neon-500 transition duration-300 font-futuristic">Team</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="notification-btn" class="relative p-2 rounded-full hover:bg-white hover:bg-opacity-20 transition duration-300">
+                    <i class="fas fa-bell"></i>
+                    <span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </button>
+                <div class="relative">
+                    <button id="user-menu-btn" class="flex items-center space-x-2 focus:outline-none">
+                        <div class="h-8 w-8 rounded-full bg-white flex items-center justify-center">
+                            <i class="fas fa-user text-gray-800"></i>
+                        </div>
+                        <span class="font-futuristic">Benutzer</span>
+                    </button>
+                    <div id="user-menu" class="hidden absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg py-1 z-50">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Profil</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Einstellungen</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-700">Abmelden</a>
+                    </div>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 absolute top-full left-0 right-0">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-2">
+                <a href="#dashboard" class="py-2 hover:text-neon-500 transition duration-300 font-futuristic">Dashboard</a>
+                <a href="#input" class="py-2 hover:text-neon-500 transition duration-300 font-futuristic">Eingabe</a>
+                <a href="#stats" class="py-2 hover:text-neon-500 transition duration-300 font-futuristic">Statistik</a>
+                <a href="#locations" class="py-2 hover:text-neon-500 transition duration-300 font-futuristic">Standorte</a>
+                <a href="#team" class="py-2 hover:text-neon-500 transition duration-300 font-futuristic">Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-16 container mx-auto px-4">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="mb-16 slide-in">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-futuristic font-bold neon-text">Willkommen zurück!</h2>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-400">Letzte Aktualisierung: heute, 14:32</span>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-300">
+                        <i class="fas fa-sync-alt mr-2"></i>Aktualisieren
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Total Eggs Card -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300 card-hover neon-border">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-400">Gesammelte Eier</p>
+                            <h3 class="text-4xl font-bold my-2 neon-text">1,248</h3>
+                            <p class="text-green-400 flex items-center">
+                                <i class="fas fa-arrow-up mr-1"></i> 12% diese Woche
+                            </p>
+                        </div>
+                        <div class="bg-blue-600 bg-opacity-20 p-3 rounded-full">
+                            <i class="fas fa-egg text-blue-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Active Locations Card -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300 card-hover neon-border">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-400">Aktive Standorte</p>
+                            <h3 class="text-4xl font-bold my-2 neon-text">8</h3>
+                            <p class="text-blue-400 flex items-center">
+                                <i class="fas fa-map-marker-alt mr-1"></i> 2 neue diese Woche
+                            </p>
+                        </div>
+                        <div class="bg-purple-600 bg-opacity-20 p-3 rounded-full">
+                            <i class="fas fa-location-dot text-purple-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Members Card -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300 card-hover neon-border">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-400">Teammitglieder</p>
+                            <h3 class="text-4xl font-bold my-2 neon-text">14</h3>
+                            <p class="text-yellow-400 flex items-center">
+                                <i class="fas fa-users mr-1"></i> 3 neue diese Woche
+                            </p>
+                        </div>
+                        <div class="bg-yellow-600 bg-opacity-20 p-3 rounded-full">
+                            <i class="fas fa-user-group text-yellow-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Weekly Goal Card -->
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg hover:shadow-xl transition duration-300 card-hover neon-border">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-gray-400">Wöchentliches Ziel</p>
+                            <h3 class="text-4xl font-bold my-2 neon-text">75%</h3>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5 mt-3">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-600 h-2.5 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="bg-green-600 bg-opacity-20 p-3 rounded-full">
+                            <i class="fas fa-bullseye text-green-400 text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Weekly Summary -->
+            <div class="bg-gray-800 rounded-lg p-6 shadow-lg mb-8 neon-border">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-futuristic font-bold neon-text">Wöchentliche Zusammenfassung</h3>
+                    <div class="flex space-x-2">
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-md transition duration-300">
+                            Diese Woche
+                        </button>
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-md transition duration-300">
+                            Letzte Woche
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-2">
+                        <canvas id="weeklyChart" height="300"></canvas>
+                    </div>
+                    <div>
+                        <div class="bg-gray-700 rounded-lg p-4 mb-4">
+                            <h4 class="font-bold mb-2">Top Standorte</h4>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Hauptbahnhof</span>
+                                        <span class="font-bold">324</span>
+                                    </div>
+                                    <div class="w-full bg-gray-600 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Stadtpark</span>
+                                        <span class="font-bold">278</span>
+                                    </div>
+                                    <div class="w-full bg-gray-600 rounded-full h-2">
+                                        <div class="bg-purple-500 h-2 rounded-full" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span>Marktplatz</span>
+                                        <span class="font-bold">195</span>
+                                    </div>
+                                    <div class="w-full bg-gray-600 rounded-full h-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-700 rounded-lg p-4">
+                            <h4 class="font-bold mb-2">Dein Fortschritt</h4>
+                            <div class="flex items-center justify-between mb-2">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-2">
+                                        <i class="fas fa-user text-white text-sm"></i>
+                                    </div>
+                                    <span>Du</span>
+                                </div>
+                                <span class="font-bold">142 Eier</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center mr-2">
+                                        <i class="fas fa-crown text-white text-sm"></i>
+                                    </div>
+                                    <span>Teamleiter</span>
+                                </div>
+                                <span class="font-bold">186 Eier</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                <h3 class="text-xl font-futuristic font-bold neon-text mb-6">Aktuelle Aktivitäten</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start p-3 hover:bg-gray-700 rounded-lg transition duration-300">
+                        <div class="bg-blue-500 bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-egg text-blue-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-medium">Max Mustermann hat 24 Eier am Hauptbahnhof gesammelt</p>
+                            <p class="text-sm text-gray-400">Heute, 12:45</p>
+                        </div>
+                        <button class="text-gray-400 hover:text-white">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-start p-3 hover:bg-gray-700 rounded-lg transition duration-300">
+                        <div class="bg-purple-500 bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-map-marker-alt text-purple-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-medium">Neuer Standort "Friedrichstraße" wurde hinzugefügt</p>
+                            <p class="text-sm text-gray-400">Gestern, 18:30</p>
+                        </div>
+                        <button class="text-gray-400 hover:text-white">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-start p-3 hover:bg-gray-700 rounded-lg transition duration-300">
+                        <div class="bg-green-500 bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-user-plus text-green-400"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-medium">Anna Schmidt ist dem Team beigetreten</p>
+                            <p class="text-sm text-gray-400">Gestern, 14:15</p>
+                        </div>
+                        <button class="text-gray-400 hover:text-white">
+                            <i class="fas fa-ellipsis-v"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Input Form Section -->
+        <section id="input" class="mb-16 slide-in">
+            <h2 class="text-3xl font-futuristic font-bold neon-text mb-8">Eingabeformular</h2>
+            
+            <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                <form id="egg-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="egg-count" class="block text-sm font-medium mb-2">Anzahl der Eier</label>
+                            <div class="relative">
+                                <input type="number" id="egg-count" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" min="0" required>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <i class="fas fa-egg text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-sm font-medium mb-2">Datum</label>
+                            <div class="relative">
+                                <input type="date" id="date" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                    <i class="fas fa-calendar text-gray-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="location" class="block text-sm font-medium mb-2">Standort</label>
+                        <div class="relative">
+                            <select id="location" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none" required>
+                                <option value="" disabled selected>Standort auswählen</option>
+                                <option value="hauptbahnhof">Hauptbahnhof</option>
+                                <option value="stadtpark">Stadtpark</option>
+                                <option value="marktplatz">Marktplatz</option>
+                                <option value="friedrichstrasse">Friedrichstraße</option>
+                                <option value="uni-campus">Uni-Campus</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                                <i class="fas fa-map-marker-alt text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="notes" class="block text-sm font-medium mb-2">Notizen (optional)</label>
+                        <textarea id="notes" rows="3" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4">
+                        <button type="reset" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md transition duration-300">
+                            Zurücksetzen
+                        </button>
+                        <button type="submit" class="gradient-bg hover:opacity-90 text-white px-6 py-2 rounded-md transition duration-300 flex items-center">
+                            <i class="fas fa-save mr-2"></i> Speichern
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+        <!-- Statistics Section -->
+        <section id="stats" class="mb-16 slide-in">
+            <h2 class="text-3xl font-futuristic font-bold neon-text mb-8">Statistiken</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="lg:col-span-2 bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-futuristic font-bold neon-text">Monatliche Übersicht</h3>
+                        <div class="flex space-x-2">
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded-md transition duration-300">
+                                <i class="fas fa-download mr-1"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    <canvas id="monthlyChart" height="300"></canvas>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                    <h3 class="text-xl font-futuristic font-bold neon-text mb-6">Top Sammler</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">1</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium">Max Mustermann</p>
+                                <p class="text-sm text-gray-400">324 Eier</p>
+                            </div>
+                            <div class="bg-blue-500 bg-opacity-20 p-2 rounded-full">
+                                <i class="fas fa-trophy text-blue-400"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">2</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium">Anna Schmidt</p>
+                                <p class="text-sm text-gray-400">278 Eier</p>
+                            </div>
+                            <div class="bg-purple-500 bg-opacity-20 p-2 rounded-full">
+                                <i class="fas fa-medal text-purple-400"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">3</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium">Thomas Müller</p>
+                                <p class="text-sm text-gray-400">195 Eier</p>
+                            </div>
+                            <div class="bg-green-500 bg-opacity-20 p-2 rounded-full">
+                                <i class="fas fa-award text-green-400"></i>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center mr-3">
+                                <span class="font-bold">4</span>
+                            </div>
+                            <div class="flex-1">
+                                <p class="font-medium">Sarah Weber</p>
+                                <p class="text-sm text-gray-400">182 Eier</p>
+                            </div>
+                            <div class="bg-yellow-500 bg-opacity-20 p-2 rounded-full">
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-futuristic font-bold neon-text">Standortanalyse</h3>
+                    <div class="flex space-x-2">
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded-md transition duration-300">
+                            <i class="fas fa-filter mr-1"></i> Filter
+                        </button>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="border-b border-gray-700">
+                            <tr>
+                                <th class="py-3 px-4 font-medium">Standort</th>
+                                <th class="py-3 px-4 font-medium">Eier gesamt</th>
+                                <th class="py-3 px-4 font-medium">Diese Woche</th>
+                                <th class="py-3 px-4 font-medium">Aktivität</th>
+                                <th class="py-3 px-4 font-medium">Aktionen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                <td class="py-3 px-4">Hauptbahnhof</td>
+                                <td class="py-3 px-4 font-bold">324</td>
+                                <td class="py-3 px-4">48</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                        <span>Hoch</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                        <i class="fas fa-chart-line"></i>
+                                    </button>
+                                    <button class="text-purple-400 hover:text-purple-300">
+                                        <i class="fas fa-map"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                <td class="py-3 px-4">Stadtpark</td>
+                                <td class="py-3 px-4 font-bold">278</td>
+                                <td class="py-3 px-4">36</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                        <span>Hoch</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                        <i class="fas fa-chart-line"></i>
+                                    </button>
+                                    <button class="text-purple-400 hover:text-purple-300">
+                                        <i class="fas fa-map"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                <td class="py-3 px-4">Marktplatz</td>
+                                <td class="py-3 px-4 font-bold">195</td>
+                                <td class="py-3 px-4">24</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 rounded-full bg-yellow-500 mr-2"></div>
+                                        <span>Mittel</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                        <i class="fas fa-chart-line"></i>
+                                    </button>
+                                    <button class="text-purple-400 hover:text-purple-300">
+                                        <i class="fas fa-map"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                <td class="py-3 px-4">Friedrichstraße</td>
+                                <td class="py-3 px-4 font-bold">142</td>
+                                <td class="py-3 px-4">18</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 rounded-full bg-yellow-500 mr-2"></div>
+                                        <span>Mittel</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                        <i class="fas fa-chart-line"></i>
+                                    </button>
+                                    <button class="text-purple-400 hover:text-purple-300">
+                                        <i class="fas fa-map"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-700 transition duration-300">
+                                <td class="py-3 px-4">Uni-Campus</td>
+                                <td class="py-3 px-4 font-bold">98</td>
+                                <td class="py-3 px-4">12</td>
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center">
+                                        <div class="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
+                                        <span>Niedrig</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                        <i class="fas fa-chart-line"></i>
+                                    </button>
+                                    <button class="text-purple-400 hover:text-purple-300">
+                                        <i class="fas fa-map"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Locations Section -->
+        <section id="locations" class="mb-16 slide-in">
+            <h2 class="text-3xl font-futuristic font-bold neon-text mb-8">Standortverwaltung</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                    <h3 class="text-xl font-futuristic font-bold neon-text mb-6">Standorte auf Karte</h3>
+                    <div class="bg-gray-700 rounded-lg h-64 flex items-center justify-center">
+                        <i class="fas fa-map-marked-alt text-4xl text-gray-500"></i>
+                    </div>
+                    <div class="mt-4 flex justify-between">
+                        <button class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition duration-300">
+                            <i class="fas fa-layer-group mr-2"></i> Ebenen
+                        </button>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-300">
+                            <i class="fas fa-directions mr-2"></i> Navigation
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                    <h3 class="text-xl font-futuristic font-bold neon-text mb-6">Neuen Standort hinzufügen</h3>
+                    <form id="location-form">
+                        <div class="mb-4">
+                            <label for="location-name" class="block text-sm font-medium mb-2">Standortname</label>
+                            <input type="text" id="location-name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="location-address" class="block text-sm font-medium mb-2">Adresse</label>
+                            <input type="text" id="location-address" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label for="location-lat" class="block text-sm font-medium mb-2">Breitengrad</label>
+                                <input type="text" id="location-lat" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div>
+                                <label for="location-lng" class="block text-sm font-medium mb-2">Längengrad</label>
+                                <input type="text" id="location-lng" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-end">
+                            <button type="submit" class="gradient-bg hover:opacity-90 text-white px-6 py-2 rounded-md transition duration-300 flex items-center">
+                                <i class="fas fa-plus mr-2"></i> Hinzufügen
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-futuristic font-bold neon-text">Alle Standorte</h3>
+                    <div class="relative">
+                        <input type="text" placeholder="Standort suchen..." class="bg-gray-700 border border-gray-600 rounded-md py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <div class="absolute left-3 top-2.5">
+                            <i class="fas fa-search text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Hauptbahnhof</h4>
+                            <div class="flex space-x-2">
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-400 hover:text-red-300">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">Bahnhofsplatz 1, 10115 Berlin</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-green-400">324 Eier</span>
+                            <span class="text-yellow-400">Aktiv</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Stadtpark</h4>
+                            <div class="flex space-x-2">
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-400 hover:text-red-300">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">Parkstraße 10, 10115 Berlin</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-green-400">278 Eier</span>
+                            <span class="text-yellow-400">Aktiv</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Marktplatz</h4>
+                            <div class="flex space-x-2">
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-400 hover:text-red-300">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">Marktplatz 5, 10115 Berlin</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-green-400">195 Eier</span>
+                            <span class="text-yellow-400">Aktiv</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Friedrichstraße</h4>
+                            <div class="flex space-x-2">
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-400 hover:text-red-300">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">Friedrichstraße 100, 10115 Berlin</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-green-400">142 Eier</span>
+                            <span class="text-yellow-400">Aktiv</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Uni-Campus</h4>
+                            <div class="flex space-x-2">
+                                <button class="text-blue-400 hover:text-blue-300">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="text-red-400 hover:text-red-300">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-2">Unter den Linden 6, 10117 Berlin</p>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-green-400">98 Eier</span>
+                            <span class="text-yellow-400">Aktiv</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 border-2 border-dashed border-gray-600 hover:bg-gray-600 transition duration-300 flex items-center justify-center cursor-pointer">
+                        <div class="text-center">
+                            <i class="fas fa-plus text-2xl text-gray-400 mb-2"></i>
+                            <p class="text-gray-400">Neuen Standort hinzufügen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Team Section -->
+        <section id="team" class="mb-16 slide-in">
+            <h2 class="text-3xl font-futuristic font-bold neon-text mb-8">Teamverwaltung</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="lg:col-span-2 bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-futuristic font-bold neon-text">Teammitglieder</h3>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-300">
+                            <i class="fas fa-user-plus mr-2"></i> Einladen
+                        </button>
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="border-b border-gray-700">
+                                <tr>
+                                    <th class="py-3 px-4 font-medium">Name</th>
+                                    <th class="py-3 px-4 font-medium">Rolle</th>
+                                    <th class="py-3 px-4 font-medium">Beigetreten</th>
+                                    <th class="py-3 px-4 font-medium">Aktivität</th>
+                                    <th class="py-3 px-4 font-medium">Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center mr-3">
+                                                <i class="fas fa-crown text-white"></i>
+                                            </div>
+                                            <span>Max Mustermann</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-blue-500 bg-opacity-20 text-blue-400 px-2 py-1 rounded-full text-xs">Teamleiter</span>
+                                    </td>
+                                    <td class="py-3 px-4">01.01.2023</td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                            <span>Aktiv</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button class="text-purple-400 hover:text-purple-300">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center mr-3">
+                                                <span class="font-bold">A</span>
+                                            </div>
+                                            <span>Anna Schmidt</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-purple-500 bg-opacity-20 text-purple-400 px-2 py-1 rounded-full text-xs">Admin</span>
+                                    </td>
+                                    <td class="py-3 px-4">15.02.2023</td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                            <span>Aktiv</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button class="text-purple-400 hover:text-purple-300">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                                                <span class="font-bold">T</span>
+                                            </div>
+                                            <span>Thomas Müller</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-green-500 bg-opacity-20 text-green-400 px-2 py-1 rounded-full text-xs">Mitglied</span>
+                                    </td>
+                                    <td class="py-3 px-4">10.03.2023</td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
+                                            <span>Aktiv</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button class="text-purple-400 hover:text-purple-300">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-700 hover:bg-gray-700 transition duration-300">
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center mr-3">
+                                                <span class="font-bold">S</span>
+                                            </div>
+                                            <span>Sarah Weber</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-2 py-1 rounded-full text-xs">Mitglied</span>
+                                    </td>
+                                    <td class="py-3 px-4">22.04.2023</td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 rounded-full bg-yellow-500 mr-2"></div>
+                                            <span>Inaktiv</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button class="text-purple-400 hover:text-purple-300">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-gray-700 transition duration-300">
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-8 h-8 rounded-full bg-red-500 flex items-center justify-center mr-3">
+                                                <span class="font-bold">P</span>
+                                            </div>
+                                            <span>Peter Schneider</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <span class="bg-red-500 bg-opacity-20 text-red-400 px-2 py-1 rounded-full text-xs">Mitglied</span>
+                                    </td>
+                                    <td class="py-3 px-4">05.05.2023</td>
+                                    <td class="py-3 px-4">
+                                        <div class="flex items-center">
+                                            <div class="w-2 h-2 rounded-full bg-red-500 mr-2"></div>
+                                            <span>Inaktiv</span>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 px-4">
+                                        <button class="text-blue-400 hover:text-blue-300 mr-2">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                        <button class="text-purple-400 hover:text-purple-300">
+                                            <i class="fas fa-user-edit"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                    <h3 class="text-xl font-futuristic font-bold neon-text mb-6">Team-Einstellungen</h3>
+                    
+                    <form id="team-settings-form">
+                        <div class="mb-4">
+                            <label for="team-name" class="block text-sm font-medium mb-2">Teamname</label>
+                            <input type="text" id="team-name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" value="Taubenfreunde Berlin" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="team-description" class="block text-sm font-medium mb-2">Beschreibung</label>
+                            <textarea id="team-description" rows="3" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500">Wir sind eine Gruppe von Ehrenamtlichen, die sich für die Kontrolle der Taubenpopulation in Berlin einsetzen.</textarea>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Teamfoto</label>
+                            <div class="flex items-center">
+                                <div class="w-16 h-16 rounded-full bg-gray-700 flex items-center justify-center mr-4 overflow-hidden">
+                                    <i class="fas fa-users text-gray-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <button type="button" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition duration-300 mr-2">
+                                        <i class="fas fa-camera mr-2"></i> Ändern
+                                    </button>
+                                    <button type="button" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md transition duration-300">
+                                        <i class="fas fa-trash mr-2"></i> Entfernen
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium mb-2">Team-Zugriff</label>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <input type="radio" id="team-access-public" name="team-access" class="mr-2" checked>
+                                    <label for="team-access-public">Öffentlich - Jeder kann beitreten</label>
+                                </div>
+                                <div class="flex items-center">
+                                    <input type="radio" id="team-access-invite" name="team-access" class="mr-2">
+                                    <label for="team-access-invite">Auf Einladung - Nur eingeladene Mitglieder können beitreten</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button type="button" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md transition duration-300">
+                                Abbrechen
+                            </button>
+                            <button type="submit" class="gradient-bg hover:opacity-90 text-white px-6 py-2 rounded-md transition duration-300">
+                                <i class="fas fa-save mr-2"></i> Speichern
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 rounded-lg p-6 shadow-lg neon-border">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-xl font-futuristic font-bold neon-text">Team-Meetings</h3>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition duration-300">
+                        <i class="fas fa-plus mr-2"></i> Neues Meeting
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Monatliches Treffen</h4>
+                            <span class="bg-green-500 bg-opacity-20 text-green-400 px-2 py-1 rounded-full text-xs">Aktiv</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-3">Besprechung der aktuellen Sammelzahlen und Planung</p>
+                        <div class="flex justify-between text-sm">
+                            <span><i class="fas fa-calendar-day mr-1"></i> Jeden 1. Montag</span>
+                            <span><i class="fas fa-clock mr-1"></i> 18:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Schulung Neueinsteiger</h4>
+                            <span class="bg-yellow-500 bg-opacity-20 text-yellow-400 px-2 py-1 rounded-full text-xs">Geplant</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-3">Einführung für neue Team-Mitglieder</p>
+                        <div class="flex justify-between text-sm">
+                            <span><i class="fas fa-calendar-day mr-1"></i> 15.07.2023</span>
+                            <span><i class="fas fa-clock mr-1"></i> 16:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-700 rounded-lg p-4 hover:bg-gray-600 transition duration-300">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="font-bold">Stadtverwaltung</h4>
+                            <span class="bg-blue-500 bg-opacity-20 text-blue-400 px-2 py-1 rounded-full text-xs">Abgeschlossen</span>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-3">Gespräch mit der Stadt über neue Standorte</p>
+                        <div class="flex justify-between text-sm">
+                            <span><i class="fas fa-calendar-day mr-1"></i> 10.06.2023</span>
+                            <span><i class="fas fa-clock mr-1"></i> 14:30</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-dove text-2xl neon-text"></i>
+                        <h3 class="text-xl font-futuristic font-bold neon-text">TAUBBY</h3>
+                    </div>
+                    <p class="text-sm">Eine Plattform für Ehrenamtliche zur Dokumentation von Taubeneiern.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-futuristic font-bold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#dashboard" class="hover:text-neon-500 transition duration-300">Dashboard</a></li>
+                        <li><a href="#input" class="hover:text-neon-500 transition duration-300">Eingabe</a></li>
+                        <li><a href="#stats" class="hover:text-neon-500 transition duration-300">Statistik</a></li>
+                        <li><a href="#locations" class="hover:text-neon-500 transition duration-300">Standorte</a></li>
+                        <li><a href="#team" class="hover:text-neon-500 transition duration-300">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-futuristic font-bold mb-4">Rechtliches</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-neon-500 transition duration-300">Impressum</a></li>
+                        <li><a href="#" class="hover:text-neon-500 transition duration-300">Datenschutz</a></li>
+                        <li><a href="#" class="hover:text-neon-500 transition duration-300">AGB</a></li>
+                        <li><a href="#" class="hover:text-neon-500 transition duration-300">Nutzungsbedingungen</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-futuristic font-bold mb-4">Kontakt</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span>info@taubby.de</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2"></i>
+                            <span>+49 30 1234567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            <span>Berlin, Deutschland</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="hover:text-neon-500 transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="hover:text-neon-500 transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="hover:text-neon-500 transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white border-opacity-20 mt-8 pt-6 text-sm text-center">
+                <p>&copy; 2023 TAUBBY - Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Notification Modal -->
+    <div id="notification-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-gray-800 rounded-lg shadow-xl w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <div class="gradient-bg rounded-t-lg p-4 flex justify-between items-center">
+                <h3 class="text-xl font-futuristic font-bold">Benachrichtigungen</h3>
+                <button id="close-notification-modal" class="text-white hover:text-gray-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-4">
+                <div class="space-y-4">
+                    <div class="flex items-start p-3 hover:bg-gray-700 rounded-lg transition duration-300 cursor-pointer">
+                        <div class="bg-blue-500 bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-info-circle text-blue-400"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Neues Update verfügbar</p>
+                            <p class="text-sm text-gray-400">Version 1.2.0 ist jetzt verfügbar mit neuen Funktionen.</p>
+                            <p class="text-xs text-gray-500 mt-1">Vor 2 Tagen</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 hover:bg-gray-700 rounded-lg transition duration-300 cursor-pointer">
+                        <div class="bg-purple-500 bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-users text-purple-400"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Team-Meeting morgen</p>
+                            <p class="text-sm text-gray-400">Vergiss nicht unser monatliches Treffen um 18:00 Uhr.</p>
+                            <p class="text-xs text-gray-500 mt-1">Gestern, 14:30</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-3 hover:bg-gray-700 rounded-lg transition duration-300 cursor-pointer">
+                        <div class="bg-green-500 bg-opacity-20 p-2 rounded-full mr-4">
+                            <i class="fas fa-trophy text-green-400"></i>
+                        </div>
+                        <div>
+                            <p class="font-medium">Glückwunsch!</p>
+                            <p class="text-sm text-gray-400">Du hast dein wöchentliches Ziel von 100 Eiern erreicht.</p>
+                            <p class="text-xs text-gray-500 mt-1">Heute, 09:15</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 text-center">
+                    <button class="text-blue-400 hover:text-blue-300">
+                        Alle als gelesen markieren
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Location Modal -->
+    <div id="add-location-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-gray-800 rounded-lg shadow-xl w-full max-w-md max-h-[80vh] overflow-y-auto">
+            <div class="gradient-bg rounded-t-lg p-4 flex justify-between items-center">
+                <h3 class="text-xl font-futuristic font-bold">Neuen Standort hinzufügen</h3>
+                <button id="close-location-modal" class="text-white hover:text-gray-300">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <form id="modal-location-form">
+                    <div class="mb-4">
+                        <label for="modal-location-name" class="block text-sm font-medium mb-2">Standortname</label>
+                        <input type="text" id="modal-location-name" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="modal-location-address" class="block text-sm font-medium mb-2">Adresse</label>
+                        <input type="text" id="modal-location-address" class="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2">Standort auf Karte</label>
+                        <div class="bg-gray-700 rounded-lg h-40 flex items-center justify-center mb-2">
+                            <i class="fas fa-map-marked-alt text-3xl text-gray-500"></i>
+                        </div>
+                        <button type="button" class="text-blue-400 hover:text-blue-300 text-sm">
+                            <i class="fas fa-map-marker-alt mr-1"></i> Auf Karte auswählen
+                        </button>
+                    </div>
+                    
+                    <div class="flex justify-end space-x-4">
+                        <button type="button" id="cancel-location" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md transition duration-300">
+                            Abbrechen
+                        </button>
+                        <button type="submit" class="gradient-bg hover:opacity-90 text-white px-6 py-2 rounded-md transition duration-300">
+                            <i class="fas fa-plus mr-2"></i> Hinzufügen
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // User menu toggle
+            const userMenuBtn = document.getElementById('user-menu-btn');
+            const userMenu = document.getElementById('user-menu');
+            
+            userMenuBtn.addEventListener('click', function() {
+                userMenu.classList.toggle('hidden');
+            });
+            
+            // Close user menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!userMenuBtn.contains(event.target) && !userMenu.contains(event.target)) {
+                    userMenu.classList.add('hidden');
+                }
+            });
+            
+            // Notification modal
+            const notificationBtn = document.getElementById('notification-btn');
+            const notificationModal = document.getElementById('notification-modal');
+            const closeNotificationModal = document.getElementById('close-notification-modal');
+            
+            notificationBtn.addEventListener('click', function() {
+                notificationModal.classList.remove('hidden');
+            });
+            
+            closeNotificationModal.addEventListener('click', function() {
+                notificationModal.classList.add('hidden');
+            });
+            
+            // Add location modal
+            const addLocationBtn = document.querySelector('.bg-gray-700.border-dashed');
+            const addLocationModal = document.getElementById('add-location-modal');
+            const closeLocationModal = document.getElementById('close-location-modal');
+            const cancelLocation = document.getElementById('cancel-location');
+            
+            if (addLocationBtn) {
+                addLocationBtn.addEventListener('click', function() {
+                    addLocationModal.classList.remove('hidden');
+                });
+            }
+            
+            closeLocationModal.addEventListener('click', function() {
+                addLocationModal.classList.add('hidden');
+            });
+            
+            cancelLocation.addEventListener('click', function() {
+                addLocationModal.classList.add('hidden');
+            });
+            
+            // Form submissions
+            const eggForm = document.getElementById('egg-form');
+            const locationForm = document.getElementById('location-form');
+            const teamSettingsForm = document.getElementById('team-settings-form');
+            
+            if (eggForm) {
+                eggForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Eingabe erfolgreich gespeichert!');
+                    eggForm.reset();
+                });
+            }
+            
+            if (locationForm) {
+                locationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Neuer Standort erfolgreich hinzugefügt!');
+                    locationForm.reset();
+                });
+            }
+            
+            if (teamSettingsForm) {
+                teamSettingsForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Team-Einstellungen erfolgreich gespeichert!');
+                });
+            }
+            
+            // Charts
+            // Weekly Chart
+            const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+            const weeklyChart = new Chart(weeklyCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'],
+                    datasets: [{
+                        label: 'Gesammelte Eier',
+                        data: [24, 32, 18, 27, 35, 42, 28],
+                        backgroundColor: [
+                            'rgba(110, 72, 170, 0.7)',
+                            'rgba(157, 80, 187, 0.7)',
+                            'rgba(110, 72, 170, 0.7)',
+                            'rgba(157, 80, 187, 0.7)',
+                            'rgba(110, 72, 170, 0.7)',
+                            'rgba(157, 80, 187, 0.7)',
+                            'rgba(110, 72, 170, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(110, 72, 170, 1)',
+                            'rgba(157, 80, 187, 1)',
+                            'rgba(110, 72, 170, 1)',
+                            'rgba(157, 80, 187, 1)',
+                            'rgba(110, 72, 170, 1)',
+                            'rgba(157, 80, 187, 1)',
+'rgba(110, 72, 170, 0.7)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+
+            // Monthly Chart
+            const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+            const monthlyChart = new Chart(monthlyCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Gesammelte Eier',
+                        data: [120, 150, 180, 200, 250, 300, 320, 280, 260, 240, 220, 200],
+                        borderColor: 'rgba(110, 72, 170, 1)',
+                        backgroundColor: 'rgba(110, 72, 170, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</html>
