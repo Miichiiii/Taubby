@@ -1,7 +1,11 @@
-TaubeneierExchange 🕊️ – Gemeinsam sammeln, gemeinsam wachsen
+Taubby 🕊️ – Gemeinsam sammeln, gemeinsam helfen
 
-Willkommen beim Open-Source-Projekt TaubeneierExchange!
-Diese Plattform soll gemeinnützigen Gruppen ermöglichen, ihre gesammelten Eier einfach zu erfassen, zu teilen und auszuwerten – digital, übersichtlich und gemeinsam.
+Willkommen bei meinem Purpose-Open-Source-Projekt: Taubby! <br>
+Diese Plattform soll gemeinnützigen Gruppen in (vorerst) Düsseldorf ermöglichen, ihre gesammelten Eier einfach zu erfassen, zu teilen und auszuwerten – digital, übersichtlich und gemeinsam.
+
+
+https://www.instagram.com/duesseltauben/
+
 ---
 🚧 Der Stand:
 Die Grundstruktur steht – aber es gibt noch viel zu tun:
