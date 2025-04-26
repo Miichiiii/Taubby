@@ -6,6 +6,8 @@ Diese Plattform soll gemeinnützigen Gruppen in (vorerst) Düsseldorf ermöglich
 
 https://www.instagram.com/duesseltauben/
 
+Viele Stadttauben leiden unter Überpopulation - zu wenig Futter, zu viele Krankheiten, und keine Ruheplätze. Mit dem Eiertausch helfen wir ganz einfach und tierschonend: Echte Taubeneier werden durch Attrappen ersetzt - so wird die Population kontrolliert, ohne Brutstress für die Tiere.😊
+
 ---
 🚧 Der Stand:
 Die Grundstruktur steht – aber es gibt noch viel zu tun:
